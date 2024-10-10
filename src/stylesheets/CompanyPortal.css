@@ -1,0 +1,102 @@
+.company-portal {
+  background: linear-gradient(135deg, #f0f4f7, #d1e8eb);
+  min-height: 100vh;
+  padding: 30px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15vh;
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcome-section h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.welcome-section p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.form-container {
+  width: 60%;
+}
+
+.form-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-box legend {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #171717;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+form label {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  width: 100%;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align label text to the left */
+}
+
+.form-box input, textarea {
+  padding: 12px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%; /* Ensure input elements fill the entire width of the container */
+}
+
+textarea {
+  height: 120px;
+}
+
+input[type="file"] {
+  padding: 0;
+}
+
+input[type="datetime-local"] {
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #fad94b;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #17e4e2;
+  transform: translateY(-2px);
+}
+
+.date_input
+{
+  margin-left: 15px;
+}
