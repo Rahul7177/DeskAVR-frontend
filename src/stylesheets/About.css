@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.aboutus-section {
+  padding: 60px 20px;
+  background-color: #181818;
+  color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+}
+
+.aboutus-container {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.aboutus-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fad94b;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.aboutus-description {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  color: #b5b5b5;
+}
+
+.aboutus-content {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.aboutus-card {
+  background-color: #232323;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aboutus-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.aboutus-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.aboutus-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fad94b;
+  margin: 10px 0;
+}
+
+.aboutus-card-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #c5c5c5;
+}

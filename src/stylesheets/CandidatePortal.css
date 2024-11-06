@@ -7,9 +7,8 @@
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  background: linear-gradient(135deg, #f0f4f7, #d1e8eb); /* Gradient matching company portal */
-  background-image: url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png'); /* Subtle texture */
-  color: #333;
+  background-color: #2e2e2e; /* Dark background */
+  color: #f0f0f0; /* Light text */
   min-height: 100vh;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -20,11 +19,11 @@
 .candidate-portal h2 {
   font-size: 2.5rem;
   margin-bottom: 25px;
-  color: #2c3e50; /* Darker shade for the heading */
+  color: #f0f0f0; /* Light text */
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Darker shadow */
 }
 
 /* Field Select Dropdown */
@@ -38,9 +37,11 @@
   max-width: 350px;
 }
 
+
+
 .field-select label {
   font-size: 1rem;
-  color: #2c3e50;
+  color: #f0f0f0; /* Light text */
   font-weight: 500;
 }
 
@@ -49,8 +50,8 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   width: 100%;
-  background-color: #fff;
-  color: #333;
+  background-color: #333; /* Dark background */
+  color: #f0f0f0; /* Light text */
   cursor: pointer;
   transition: border 0.3s ease, box-shadow 0.3s ease;
   font-size: 1rem;
@@ -58,7 +59,7 @@
 }
 
 .dropdown:hover {
-  border-color: #fad94b; /* Match company portal button color */
+  border-color: #fad94b; /* Orange hover color */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -69,6 +70,11 @@
   max-width: 1000px;
   display: flex;
   flex-direction: column;
+}
+
+.company-list h3
+{
+  margin-bottom: 15px;
 }
 
 /* Company Tiles */
@@ -83,13 +89,13 @@
 .company-tile {
   position: relative;
   width: 30%;
-  /* max-width: 30%; */
   height: 200px;
-  /* max-height: fit-content; */
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0px 0px 3px black;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #444; /* Dark tile background */
 }
 
 .company-tile:hover {
@@ -141,8 +147,8 @@
 .company-details {
   margin-top: 20px;
   padding: 20px;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: #333; /* Dark background */
+  border: 1px solid #444;
   border-radius: 10px;
   width: 100%;
   max-width: 1000px;
@@ -155,13 +161,13 @@
 .company-details h2 {
   font-size: 2rem;
   margin-bottom: 15px;
-  color: #2c3e50;
+  color: #f0f0f0; /* Light text */
 }
 
 .company-details p {
   font-size: 1rem;
   margin: 10px 0;
-  color: #2c3e50;
+  color: #f0f0f0; /* Light text */
 }
 
 .company-info {
@@ -185,7 +191,7 @@
 .attend-btn {
   margin-top: 25px;
   padding: 12px 24px;
-  background-color: #fad94b; /* Match company portal button color */
+  background-color: #fad94b; /* Orange button */
   color: #0a0a0a;
   border: none;
   cursor: pointer;
@@ -196,7 +202,7 @@
 }
 
 .attend-btn:hover {
-  background-color: #17e4e2; /* Match company portal button hover color */
+  background-color: #17e4e2; /* Hover color */
   transform: translateY(-2px);
 }
 
@@ -212,13 +218,13 @@
 .skill-box {
   display: inline-block;
   padding: 10px 15px;
-  background-color: #e0f7fa;
+  background-color: #444; /* Dark background */
   border-radius: 20px;
   margin: 5px;
-  color: #00796b;
+  color: #17e4e2; /* Light text with a hint of turquoise */
   font-weight: 500;
   font-size: 0.9rem;
-  border: 1px solid #00796b;
+  border: 1px solid #17e4e2;
 }
 
 /* Input Prompt Styling */
@@ -226,9 +232,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: #444; /* Dark background */
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #444;
   border-radius: 10px;
   width: 300px;
   max-width: 100%;
@@ -239,7 +245,7 @@
 .input-prompt label {
   font-size: 1rem;
   margin-bottom: 10px;
-  color: #2c3e50;
+  color: #f0f0f0; /* Light text */
 }
 
 .input-prompt input {
@@ -249,11 +255,13 @@
   width: 100%;
   margin-bottom: 15px;
   font-size: 1rem;
+  background-color: #333; /* Dark background */
+  color: #f0f0f0; /* Light text */
 }
 
 .input-prompt button {
   padding: 10px 20px;
-  background-color: #fad94b; /* Match company portal button color */
+  background-color: #fad94b; /* Orange button */
   color: #0a0a0a;
   border: none;
   cursor: pointer;
@@ -263,7 +271,7 @@
 }
 
 .input-prompt button:hover {
-  background-color: #17e4e2; /* Match company portal button hover color */
+  background-color: #17e4e2; /* Hover color */
   transform: translateY(-2px);
 }
 
@@ -283,7 +291,7 @@
 
 /* Modal Content */
 .modal-content {
-  background: #fff;
+  background: #333; /* Dark background */
   padding: 20px;
   border-radius: 10px;
   width: 90%;
@@ -294,93 +302,134 @@
 
 .modal-content h3 {
   margin-bottom: 15px;
-  color: #2c3e50;
+  color: #f0f0f0; /* Light text */
 }
 
 .modal-content label {
   display: block;
   font-size: 1rem;
   margin-bottom: 5px;
-  color: #2c3e50;
+  color: #f0f0f0; /* Light text */
 }
 
 .modal-content input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  width: 90%;
+  width: 100%;
   margin-bottom: 15px;
-  font-size: 1rem;
+  background-color: #333; /* Dark background */
+  color: #f0f0f0; /* Light text */
 }
 
-.modal-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.modal-submit,
-.modal-close {
+.modal-content button {
   padding: 10px 20px;
+  background-color: #fad94b; /* Orange button */
+  color: #0a0a0a;
   border: none;
+  cursor: pointer;
   border-radius: 8px;
   font-size: 1rem;
-  cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.modal-submit {
-  background-color: #fad94b; /* Match company portal button color */
-  color: #0a0a0a;
-}
-
-.modal-submit:hover {
-  background-color: #17e4e2; /* Match company portal button hover color */
+.modal-content button:hover {
+  background-color: #17e4e2; /* Hover color */
   transform: translateY(-2px);
 }
 
-.modal-close {
-  background-color: #e57373;
-  color: #fff;
+#candidate-title
+{
+  color: #fad94b;
 }
 
-.modal-close:hover {
-  background-color: #ef5350;
-  transform: translateY(-2px);
-}
-.past-interviews
-{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+.past-interviews {
+  margin-top: 20px;
 }
 
-.past-company-container
-{
-  width: 100%;
+.past-interviews h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #fad94b;
+  text-align: center;
+}
+
+.past-company-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
-.interview-card 
-{
-  width: 30%;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: space-evenly; */
+.interview-card {
+  width: 280px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
   background-color: #fff;
-}
-.past-company-logo
-{
-  height: 150px;
-  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-.interview-info
-{
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.interview-card:hover {
+  transform: translateY(-5px);
+}
+
+.past-company-logo {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  background-color: #f0f0f0;
+}
+
+.interview-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.interview-info h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.interview-info p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.view-report-btn {
+  padding: 8px 16px;
+  background-color: #fad94b;
+  color: #2e2e2e;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.view-report-btn:hover {
+  background-color: #17e4e2;
+}
+
+/* Styling for the header actions button */
+.header-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.view-past-btn {
+  padding: 10px 20px;
+  background-color: #fad94b;
+  color: #2e2e2e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.view-past-btn:hover {
+  background-color: #17e4e2;
 }

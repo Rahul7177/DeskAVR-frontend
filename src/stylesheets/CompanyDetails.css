@@ -1,87 +1,173 @@
 .company-details-page {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .comp-h1 {
-    text-align: center;
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .company-details-logo {
-    display: block;
-    margin: 0 auto;
-    max-width: 150px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .comp-p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  .comp-strong {
-    color: #333;
-  }
-  
-  .requirements {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .skill-box {
-    background-color: #007bff;
-    color: #fff;
-    font-size: 14px;
-    padding: 8px 12px;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .skill-box:hover {
-    background-color: #0056b3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #181818; /* Dark background color */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Darker shadow for dark theme */
+  font-family: 'Arial', sans-serif;
+  color: #e0e0e0; /* Lighter text color for dark theme */
+}
+
+.comp-h1 {
+  text-align: center;
+  font-size: 30px;
+  color: #fff; /* White text for header */
+  margin-bottom: 20px;
+}
+
+.company-details {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.company-details-logo {
+  display: block;
+  margin: 15px;
+  max-width: 150px;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Darker shadow for logo */
+  transition: transform 0.3s;
+}
+
+.company-details-logo:hover {
+  transform: scale(1.05); /* Logo zoom effect on hover */
+}
+
+.comp-p {
+  font-size: 18px;
+  color: #e0e0e0; /* Light text for paragraphs */
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.comp-strong {
+  color: #f0f0f0; /* Slightly brighter strong text */
+}
+
+.job-description {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+  text-align: left;
+}
+
+.job-description li {
+  font-size: 18px;
+  color: #ccc; /* Lighter color for list items */
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.requirements {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-box {
+  background-color: #f0c84a;
+  color: #0a0a0a;
+  font-size: 14px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.skill-box:hover {
+  background-color: #17e4e2;
+  transform: translateY(-2px);
+}
+
+.attend-btn {
+  width: fit-content;
+  padding: 12px 24px;
+  margin-top: 30px;
+  background-color: #fad94b;
+  color: #0a0a0a;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.attend-btn:hover {
+  background-color: #17e4e2;
+  transform: translateY(-2px);
+}
+
+.back-btn {
+  width: fit-content;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.back-btn:hover {
+  background-color: #444;
+  transform: translateY(-2px);
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for modal */
+}
+
+.modal-content {
+  background-color: #282828; /* Darker background for modal */
+  color: #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 100px auto;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h3 {
+  color: #fff; /* White text for modal heading */
+}
+
+.modal-buttons button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin: 10px 5px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-buttons button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .company-details-page {
+      padding: 15px;
   }
 
-  .back-btn
-  {
-    width: fit-content;
-    margin-top: 25px;
-    padding: 12px 24px;
-    margin-left: 10px;
-    background-color: #fad94b; /* Match company portal button color */
-    color: #0a0a0a;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: background 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  .comp-h1 {
+      font-size: 26px;
   }
-  
-  @media (max-width: 768px) {
-    .company-details-page {
-      padding: 15px;
-    }
-  
-    .comp-h1 {
-      font-size: 24px;
-    }
-  
-    .comp-p {
-      font-size: 14px;
-    }
+
+  .comp-p {
+      font-size: 16px;
   }
-  
+}

@@ -3,24 +3,47 @@ import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
 import jsPDF from 'jspdf';
 import '../stylesheets/Report.css';
-import nokia from '../assets/logos/nokia.webp'
+import bofa from '../assets/logos/bofa.png';
 
 function InterviewReport() {
-  // Sample data for company and candidate
-  const companyLogo = nokia; // Replace with the actual company logo URL
-  const companyName = 'Nokia';
+  const companyLogo = bofa; // Replace with the actual company logo URL
+  const companyName = 'Bank of America';
   const jobRole = 'Software Engineer';
   const candidateName = 'John Doe';
   const candidateEmail = 'john.doe@email.com';
+  
+  // Sample questions with answers and scores
+  const questions = [
+    { question: '1) Introduce yourself.', answer: 'I am a software engineer with a passion for coding.', score: 8 },
+    { question: '2) What is your experience with JavaScript?', answer: 'I have worked on several projects using JavaScript.', score: 7 },
+    { question: '3) Explain closure in JavaScript.', answer: 'A closure is a function that retains access to its lexical scope.', score: 9 },
+    { question: '4) What are promises in JavaScript?', answer: 'Promises are objects representing the eventual completion of an asynchronous operation.', score: 6 },
+    { question: '5) Describe the concept of inheritance in OOP.', answer: 'Inheritance allows a class to inherit properties and methods from another class.', score: 8 },
+    { question: '6) What is your experience with React?', answer: 'I have built several applications using React.', score: 9 },
+    { question: '7) How do you handle state management in React?', answer: 'I use Context API and Redux for state management.', score: 7 },
+    { question: '8) Explain the concept of RESTful APIs.', answer: 'RESTful APIs allow communication between client and server using HTTP requests.', score: 8 },
+    { question: '9) What is your experience with version control systems?', answer: 'I regularly use Git for version control.', score: 9 },
+    { question: '10) How do you approach debugging?', answer: 'I use console logs and debugging tools to troubleshoot issues.', score: 6 },
+  ];
+
+  // Calculate marks for the pie chart
+  const correctAnswers = questions.filter(q => q.score >= 6).length;
+  const wrongAnswers = questions.filter(q => q.score < 6).length;
+  const unansweredQuestions = questions.filter(q => !q.answer).length;
+
+  const totalMarks = questions.reduce((acc, q) => acc + (q.score > 0 ? q.score : 0), 0);
+  const totalQuestions = questions.length;
+  const maxMarksPerQuestion = 10; // Assuming each question is out of 10
+  const overallScore = (totalMarks / (totalQuestions * maxMarksPerQuestion)) * 100;
 
   const data = {
-    labels: ['Correct Answers', 'Wrong Answers', 'Unanswered Questions'],
+    labels: ['Marks Scored', 'Marks Lost'],
     datasets: [
       {
         label: 'Interview Performance',
-        data: [18, 7, 0], // Sample data: 18 correct, 7 wrong, 0 unanswered
-        backgroundColor: ['#4CAF50', '#FF5252', '#FFEB3B'],
-        hoverBackgroundColor: ['#66BB6A', '#FF1744', '#FFD700'],
+        data: [totalMarks, (totalQuestions * maxMarksPerQuestion) - totalMarks],
+        backgroundColor: ['#4CAF50', '#FF5252'],
+        hoverBackgroundColor: ['#66BB6A', '#FF1744'],
       },
     ],
   };
@@ -34,11 +57,6 @@ function InterviewReport() {
     },
   };
 
-  // Define questions arrays
-  const correctQuestions = ['Q1', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'Q9', 'Q11', 'Q12', 'Q13', 'Q15', 'Q16', 'Q17', 'Q18', 'Q20', 'Q21', 'Q23', 'Q25'];
-  const wrongQuestions = ['Q4', 'Q6', 'Q10', 'Q14', 'Q19', 'Q22', 'Q24'];
-  const unansweredQuestions = []; // Adjust this if needed
-
   const handleDownloadPDF = () => {
     const doc = new jsPDF();
     doc.text('Interview Performance Report', 10, 10);
@@ -46,26 +64,23 @@ function InterviewReport() {
     doc.text(`Job Role: ${jobRole}`, 10, 30);
     doc.text(`Candidate: ${candidateName}`, 10, 40);
     doc.text(`Email: ${candidateEmail}`, 10, 50);
-    doc.text('Total Questions: 25', 10, 60);
-    doc.text('Correct Answers: 18', 10, 70);
-    doc.text('Wrong Answers: 7', 10, 80);
-    doc.text('Unanswered Questions: 0', 10, 90);
-    doc.text('Marking Scheme: 4 marks for correct answers, -1 for wrong answers', 10, 100);
-    doc.text('Overall Score: 72%', 10, 110);
-    doc.text('Suggestions for Improvement:', 10, 130);
-    doc.text('- Improve time management for coding questions.', 10, 140);
-    doc.text('- Brush up on data structures and algorithms.', 10, 150);
-    doc.text('- Practice more system design problems.', 10, 160);
-    doc.text('Correct Questions: ' + correctQuestions.join(', '), 10, 180);
-    doc.text('Wrong Questions: ' + wrongQuestions.join(', '), 10, 190);
-    doc.text('Unanswered Questions: ' + (unansweredQuestions.length ? unansweredQuestions.join(', ') : 'None'), 10, 200);
+    doc.text(`Total Questions: ${totalQuestions}`, 10, 60);
+    doc.text(`Marks Scored: ${totalMarks}`, 10, 70);
+    doc.text(`Overall Score: ${overallScore.toFixed(2)}%`, 10, 80);
+    doc.text('Question Breakdown:', 10, 100);
+
+    questions.forEach((q, index) => {
+      doc.text(`${index + 1}) ${q.question}`, 10, 110 + (index * 10));
+      doc.text(`Answer: ${q.answer}`, 20, 115 + (index * 10));
+      doc.text(`Marks: ${q.score}`, 20, 120 + (index * 10));
+    });
+
     doc.save('InterviewReport.pdf');
   };
 
   return (
     <div className='report-container'>
       <div className="interview-report">
-        {/* Company and Candidate Details */}
         <div className="company-candidate-details">
           <div className="company-info">
             <img src={companyLogo} alt="Company Logo" className="report-company-logo" />
@@ -77,6 +92,7 @@ function InterviewReport() {
           <div className="candidate-info">
             <p><strong>Candidate Name:</strong> {candidateName}</p>
             <p><strong>Email:</strong> {candidateEmail}</p>
+            <p><strong>Date :</strong> 12/10/2024</p>
           </div>
         </div>
 
@@ -84,12 +100,9 @@ function InterviewReport() {
 
         <div className="score-overview">
           <div>
-            <h3>Total Questions: 25</h3>
-            <p><strong>Correct Answers:</strong> 18</p>
-            <p><strong>Wrong Answers:</strong> 7</p>
-            <p><strong>Unanswered Questions:</strong> 0</p>
-            <p><strong>Marking Scheme:</strong> 4 marks for correct answers, -1 for wrong answers</p>
-            <p><strong>Overall Score:</strong> 72%</p>
+            <h3>Total Questions: {totalQuestions}</h3>
+            <p><strong>Marks Scored:</strong> {totalMarks}</p>
+            <p><strong>Overall Score:</strong> {overallScore.toFixed(2)}%</p>
           </div>
           <div className="pie-chart-container">
             <Pie data={data} options={options} />
@@ -99,27 +112,13 @@ function InterviewReport() {
         {/* Question Breakdown */}
         <div className="question-section">
           <h3>Question Breakdown:</h3>
-          <div className="question-category">
-            <h4>Correct Questions:</h4>
-            <p>{correctQuestions.join(', ')}</p>
-          </div>
-          <div className="question-category">
-            <h4>Wrong Questions:</h4>
-            <p>{wrongQuestions.join(', ')}</p>
-          </div>
-          <div className="question-category">
-            <h4>Unanswered Questions:</h4>
-            <p>{unansweredQuestions.length > 0 ? unansweredQuestions.join(', ') : 'None'}</p>
-          </div>
-        </div>
-
-        <div className="improvement-section">
-          <h3>What You Could Do Better:</h3>
-          <ul>
-            <li>Improve time management for coding questions.</li>
-            <li>Brush up on data structures and algorithms.</li>
-            <li>Practice more system design problems.</li>
-          </ul>
+          {questions.map((q, index) => (
+            <div className="question-category" key={index}>
+              <h4>{q.question}</h4>
+              <p><strong>Answer:</strong> {q.answer}</p>
+              <p><strong>Marks Scored:</strong> {q.score}</p>
+            </div>
+          ))}
         </div>
 
         <div className="button-container">

@@ -1,0 +1,96 @@
+.signin-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 2%;
+    background-color: var(--secondary-bg);
+}
+
+.signin-section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* width: fit-content; */
+    background-color: var(--primary-text);
+    color: var(--primary-bg);
+    /* background-color: red; */
+    display: flex;
+    padding: 3rem 5rem;
+    border-radius: 5px;
+}
+
+.signin-header
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-header h1
+{
+    color: var(--text-primary);
+    font-size: 3rem;
+    margin: 20px;
+    margin-top: 0;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+}
+
+form input
+{
+    font-size: 1.5rem;
+    padding: 10px;
+    width: 30vw;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--secondary-bg);
+}
+
+button
+{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 2rem;
+    border: none;
+    background-color: var(--accent);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.signin-bottom
+{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2.5rem;
+    width: 100%;
+}
+
+.login
+{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--primary-bg);
+    text-decoration: underline;
+    font-weight: 600;
+    margin-left: 3px;
+}

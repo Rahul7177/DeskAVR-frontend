@@ -1,17 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-
 .homepage-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 100vw;
+  min-width: 100%;
 }
 
 .hero-section {
@@ -21,7 +12,7 @@ html, body {
   align-items: center;
   height: 100%;
   width: 100%;
-  background: black; /* Ensure background covers the full area */
+  background: black;
 }
 
 .hero-video {
@@ -36,34 +27,54 @@ html, body {
 .hero-video video {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.hero-content {
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative; /* Relative positioning for the overlay */
-  text-align: center;
-  color: #ffffff;
-  z-index: 1; /* Ensure content is above the video */
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-  /* border-radius: 10px; */
-  /* font-family: "Caveat", cursive ;  */
+  background: rgba(0, 0, 0, 0.95); /* Darker overlay */
+  z-index: 1; /* Place overlay above video */
 }
 
-.hero-content h1 {
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+  position: relative;
+  color: #ffffff;
+  z-index: 2; /* Place content above overlay */
+  padding: 20px;
+}
+
+.title
+{
+  color: #fad94b;
+}
+
+.hero-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.hero-text h1 {
   font-size: 3rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: 600;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  max-width: 80%; /* Reduce width of paragraph */
 }
 
 .hero-buttons {

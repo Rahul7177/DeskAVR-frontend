@@ -10,6 +10,13 @@ import bofa_logo from '../assets/logos/bofa.png';
 import Navbar from '../components/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 
+const upcomingCompanies = [
+  { id: 1, name: "Nokia", requirements: "Figma, Sketch, Prototyping", logo: nokia_logo },
+    { id: 2, name: "Google", requirements: "Adobe XD, Wireframing, User Testing", logo: google_logo },
+    { id: 3, name: "Microsoft", requirements: "Adobe XD, Wireframing, User Testing", logo: microsoft_logo },
+  // { id: 6, name: "Bank of America", requirements: "C++, SQL, Data Analytics", logo: bofa_logo },
+];
+
 const companies = {
   "UI/UX": [
     { id: 1, name: "Nokia", requirements: "Figma, Sketch, Prototyping", logo: nokia_logo },
@@ -28,18 +35,19 @@ const companies = {
 };
 
 const pastInterviews = [
+  { name: "Bank of America", logo: bofa_logo, date: "2024-10-12" },
   { name: "Google", logo: google_logo, date: "2024-09-10" },
   { name: "Microsoft", logo: microsoft_logo, date: "2024-09-12" }
 ];
 
 function CandidatePortal() {
-  const [selectedField, setSelectedField] = useState('');
+  const [selectedField, setSelectedField] = useState('');  // Track the selected field
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [candidateSkills, setCandidateSkills] = useState('JavaScript, React');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
-  const [showPastInterviews, setShowPastInterviews] = useState(false);
+  const [showPastInterviews, setShowPastInterviews] = useState(false);  // Toggle for past interviews
 
   const navigate = useNavigate();
 
@@ -49,7 +57,7 @@ function CandidatePortal() {
   };
 
   const handleCompanySelect = (company) => {
-    navigate(`/company-details/${company.name}`, { state: { company } }); // Ensure the state contains the company details
+    navigate(`/company-details/${company.name}`, { state: { company } }); // Navigate to company details
   };
 
   const handleAttend = () => {
@@ -71,27 +79,28 @@ function CandidatePortal() {
 
   return (
     <div className="candidate-portal">
-      <Navbar />
-
-      {showPastInterviews ? (
+      <Navbar />  {/* Navigation bar */}
+      
+      {showPastInterviews ? (  // Show past interviews section
         <div className="past-interviews">
           <h2>Past Interviews</h2>
           <div className='past-company-container'>
-          {pastInterviews.map((interview, index) => (
-            <div key={index} className="interview-card">
-              <img src={interview.logo} alt={interview.name} className="past-company-logo" />
-              <div className="interview-info">
-                <h3>{interview.name}</h3>
-                <p>Date Attended: {interview.date}</p>
-                <Link to='/report'><button className="view-report-btn">View Detailed Report</button></Link>
+            {pastInterviews.map((interview, index) => (
+              <div key={index} className="interview-card">
+                <img src={interview.logo} alt={interview.name} className="past-company-logo" />
+                <div className="interview-info">
+                  <h3>{interview.name}</h3>
+                  <p>Date Attended: {interview.date}</p>
+                  <Link to='/report'><button className="view-report-btn">View Detailed Report</button></Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
           </div>
         </div>
       ) : (
         <>
-          <h2>Candidate Portal</h2>
+          <h2 id='candidate-title'>Candidate Portal</h2>
+
           <div className="field-select">
             <label htmlFor="field">Select Role you wish to apply for:</label>
             <select
@@ -108,14 +117,34 @@ function CandidatePortal() {
               ))}
             </select>
           </div>
-          
-          <div className="header-actions">
-        <button className="view-past-btn" onClick={togglePastInterviews}>
-          {showPastInterviews ? "Back to Apply" : "View Past Interviews"}
-        </button>
-      </div>
 
-          {selectedField && (
+          <div className="header-actions">
+            <button className="view-past-btn" onClick={togglePastInterviews}>
+              {showPastInterviews ? "Back to Apply" : "View Past Interviews"}
+            </button>
+          </div>
+
+          {!selectedField ? ( // Show upcoming companies if no field is selected
+            <div className="company-list">
+              <h3>List Of Companies</h3>
+              <div className="company-tiles">
+                {upcomingCompanies.map((company) => (
+                  <div
+                    key={company.id}
+                    className="company-tile"
+                    onClick={() => handleCompanySelect(company)}
+                  >
+                    <div className="logo-container">
+                      <img src={company.logo} alt={company.name} className="company-logo" />
+                      <div className="overlay">
+                        <div className="overlay-text">{company.name}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
             <div className="company-list">
               <h3>Companies hiring for {selectedField}</h3>
               <div className="company-tiles">
@@ -123,7 +152,7 @@ function CandidatePortal() {
                   <div
                     key={company.name}
                     className={`company-tile ${selectedCompany?.name === company.name ? 'selected' : ''}`}
-                    onClick={() => handleCompanySelect(company)} // Navigate to the company page
+                    onClick={() => handleCompanySelect(company)}
                   >
                     <div className="logo-container">
                       <img src={company.logo} alt={company.name} className="company-logo" />
