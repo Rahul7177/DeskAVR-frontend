@@ -4,6 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css'; // Import DatePicker stylin
 import '../stylesheets/CompanyPortal.css'; // Import your custom CSS
 import Navbar from '../components/Navbar';
 import business from '../assets/logos/business.png';
+import timer from '../assets/videos/timer.gif'
 
 const CompanyPortal = () => {
   const [step, setStep] = useState(1); // Step progression
@@ -30,7 +31,7 @@ const CompanyPortal = () => {
     <div className="company-portal">
       <Navbar />
       <div className="portal-content">
-        <div className="welcome-section">
+        {/* <div className="welcome-section">
           <h1>Welcome to the DeskAVR's Business Portal</h1>
           <p>We would be soon launching this portal. You can pre-register now.</p>
           <img src={business} className='business-vector'></img>
@@ -80,26 +81,18 @@ const CompanyPortal = () => {
                 Upload CSV file containing candidate details:
                 <input type="file" name="csvFile" onChange={handleFileUpload} required />
               </label>
-              <label>
-                Interview Time:
-                <DatePicker
-                  selected={interviewDetails.interviewTime}
-                  onChange={handleInterviewChange}
-                  showTimeSelect
-                  timeFormat="HH:mm"
-                  timeIntervals={15}
-                  dateFormat="MMMM d, yyyy h:mm aa"
-                  placeholderText="Select interview time"
-                  required
-                  className="date_input"
-                />
-              </label>
+              
               <div className="form-buttons">
                 <button onClick={handlePreviousStep}>Go Back</button>
                 <button onClick={handleSubmit}>Pre Register</button>
               </div>
             </div>
           )}
+        </div> */}
+
+        <div className='welcome-section'>
+        <h1>Thanks for your valuable interest.<br></br> DeskAVR for Business launching soon..</h1>
+        <img src={timer}></img>
         </div>
       </div>
     </div>

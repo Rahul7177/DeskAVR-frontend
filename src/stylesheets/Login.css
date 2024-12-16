@@ -1,4 +1,4 @@
-.signup-section {
+.login-section {
     min-height: 100vh;
     width: 100%;
     margin-top: 50px;
@@ -12,7 +12,7 @@
     gap: 30px;
   }
   
-  .signup-container {
+  .login-container {
     max-width: 60%;
     min-width: 50%;
     text-align: center;
@@ -22,19 +22,19 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   }
   
-  .signup-title {
+  .login-title {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #fad94b;
   }
   
-  .signup-description {
+  .login-description {
     font-size: 1.1rem;
     margin-bottom: 30px;
     line-height: 1.6;
   }
   
-  .signup-content {
+  .login-content {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -42,7 +42,7 @@
     flex-wrap: wrap;
   }
   
-  .signup-card {
+  .login-card {
     background: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     padding: 20px;
@@ -52,29 +52,29 @@
     transition: transform 0.3s ease;
   }
   
-  .signup-card:hover {
+  .login-card:hover {
     transform: scale(1.05);
   }
   
-  .signup-image {
+  .login-image {
     width: 250px;
     height: auto;
     margin-bottom: 20px;
   }
   
-  .signup-card-title {
+  .login-card-title {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 15px;
   }
   
-  .signup-card-description {
+  .login-card-description {
     font-size: 1rem;
     line-height: 1.6;
     color: #dcdcdc;
   }
   
-  .signup-form {
+  .login-form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -87,7 +87,7 @@
     width: 80%;
   }
   
-  .signup-input, .signup-textarea {
+  .login-input, .login-textarea {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
@@ -99,12 +99,12 @@
     /* outline:#fad94b 3px ; */
   }
   
-  .signup-textarea {
+  .login-textarea {
     height: 150px;
     resize: none;
   }
   
-  .signup-btn {
+  .login-btn {
     margin-bottom: 15px;
     padding: 12px 24px;
     background-color: #fad94b;
@@ -118,7 +118,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
-  .signup-btn:hover {
+  .login-btn:hover {
     background-color: #17e4e2;
     transform: translateY(-2px);
   }
@@ -130,7 +130,7 @@
     color: #ffffff;
   }
 
-  .signup-links
+  .login-links
   {
     width: 80%;
     display: flex;
@@ -138,7 +138,7 @@
     margin-bottom: 25px;
   }
 
-  .signup-links a
+  .login-links a
   {
     /* text-decoration: none; */
     color: #fad94b;

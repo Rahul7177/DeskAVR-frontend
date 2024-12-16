@@ -21,17 +21,48 @@
 }
 
 .welcome-section {
-  text-align: left;
+  /* text-align: left;
   width: 40%;
-  padding-right: 20px;
+  padding-right: 20px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .welcome-section h1 {
-  font-size: 2rem;
-  color: #fad94b;
-  margin-bottom: 15px;
+  font-size: 3vw;
+font-weight: 700;
+color: #fad94b;
+margin-bottom: 10px;
+padding: 25px 0;
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+background-image: linear-gradient(45deg, #ffd51c, #992cff, #fad94b);
+background-size: 200% 200%;
+animation: neonGradient 5s linear infinite;
 }
 
+@keyframes neonGradient {
+  0% {
+  background-position: 0% 50%;
+  }
+  50% {
+  background-position: 100% 50%;
+  }
+  100% {
+  background-position: 0% 50%;
+  }
+  }
+
+  .welcome-section img
+  {
+    height: 200px;
+    width: 200px;
+    background: transparent;
+  }
 .welcome-section p {
   font-size: 1.1rem;
   margin-bottom: 25px;

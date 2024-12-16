@@ -1,0 +1,24 @@
+body {
+    cursor: none;
+  }
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fad94b, #7300ff);
+    pointer-events: none;
+    transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease;
+    z-index: 10000;
+    mix-blend-mode: difference; /* Optional: Makes the cursor stand out on different backgrounds */
+    transform: translate(-50%, -50%);
+  }
+  
+  .custom-cursor.hovered {
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  

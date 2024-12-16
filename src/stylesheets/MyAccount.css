@@ -1,0 +1,49 @@
+.myaccount-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .account-info
+  {
+    color: #3554e1;
+  }
+  .user-info {
+    margin-bottom: 20px;
+  }
+  
+  .options {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: none;
+    background-color: #3a79f1;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #3554e1;
+  }
+  
+  .password-section,
+  .subscription-section {
+    margin-top: 10px;
+  }
+  
+  .logout-btn {
+    background-color: #f44336;
+  }
+  
+  .logout-btn:hover {
+    background-color: #d32f2f;
+  }
+  

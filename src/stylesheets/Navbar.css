@@ -1,5 +1,6 @@
 /* Navbar Styling */
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 .navbar {
   background-color: rgba(0, 0, 0, 0.8);
@@ -9,10 +10,10 @@
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1001;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   box-sizing: border-box; /* Ensure padding is included in total width */
-  overflow: hidden; /* Prevent overflow */
+   /* Prevent overflow */
 }
 
 .navbar-container {
@@ -29,13 +30,35 @@
   margin: 0;
   font-weight: 700;
   font-family: "Caveat", cursive;
-  /* background: linear-gradient(135deg, #fad94b, #17e4e2);  */
-  color: white;
-  /* -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  background-clip: text; 
-  text-fill-color: transparent;  */
+  font-family: "Bruno Ace", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  background: linear-gradient(135deg, #fad94b, #7300ff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: gradientAnimation 3s ease infinite;
   white-space: nowrap; 
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.navbar-brand a
+{
+  text-decoration: none;
 }
 
 .navbar-menu {
@@ -102,4 +125,58 @@
   .navbar-menu a {
     font-size: 1.2rem;
   }
+}
+
+/* Navbar CSS */
+.navbar-account {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  margin-top: 10px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color:#333;
+  border: 1px solid #ddd;
+  list-style: none;
+  padding: 10px;
+  visibility: hidden;  /* Initially hidden */
+  opacity: 0;  /* Set opacity to 0 initially */
+  transition: opacity 0.3s ease, visibility 0s ease 0.3s;  /* Add transition */
+  z-index: 1001;  /* Ensure it appears above other elements */
+}
+
+.navbar-account:hover .dropdown-menu,
+.navbar-account .dropdown-menu {
+  visibility: visible;  /* Make it visible when hovered */
+  opacity: 1;  /* Fade in */
+  transition: opacity 0.3s ease, visibility 0s ease 0s;  /* Remove delayed visibility */
+}
+
+.dropdown-menu li {
+  margin: 5px 0;
+}
+
+.dropdown-menu li a,
+.dropdown-menu li button {
+  color: #fad94b;
+  text-decoration: none;
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dropdown-menu li button {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li button:hover {
+  background-color: #1d1d1d;
+  color: #fad94b;
 }

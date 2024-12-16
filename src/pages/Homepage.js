@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar'; // Import the Navbar component
-import '../stylesheets/Homepage.css'; // Import the stylesheet
+import '../stylesheets/Homepage.css'; 
 import trailer from '../assets/videos/trailer.mp4';
 import AboutUs from '../components/About';
 import ContactUs from '../components/Contact';
