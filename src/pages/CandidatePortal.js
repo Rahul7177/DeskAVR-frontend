@@ -22,8 +22,8 @@ function CandidatePortal() {
     { id: 4, name: "Deloitte", requirements: "Python, SQL, Data Visualization", logo: deloitte_logo },
     { id: 5, name: "EY", requirements: "R, Machine Learning, Data Cleaning", logo: ey_logo },
     { id: 6, name: "Bank of America", requirements: "C++, SQL, Data Analytics", logo: bofa_logo },
-    { id: 7, name: "Adobe", requirements: "Python, Django, REST APIs", logo: adobe_logo },
-    { id: 8, name: "TCS", requirements: "Python, Django, REST APIs", logo: tcs_logo },
+    { id: 7, name: "Adobe", requirements: "C++, Java, SQL", logo: adobe_logo },
+    { id: 8, name: "TCS", requirements: "Java, Django, Networks", logo: tcs_logo },
     { id: 9, name: "Infosys", requirements: "Python, Django, REST APIs", logo: infosys_logo },
   ];
   

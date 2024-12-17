@@ -38,11 +38,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Logout function
-  const logout = () => {
-    setUser(null); // Clear the user data
-    localStorage.removeItem('authToken'); // Remove the token from local storage
-  };
-  
+const logout = () => {
+  setUser(null); // Clear the user data
+  localStorage.removeItem('authToken'); // Remove the token from local storage
+};
+
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
