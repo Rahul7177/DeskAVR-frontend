@@ -4,13 +4,15 @@ import HomePage from './pages/Homepage'
 import CandidatePortal from './pages/CandidatePortal';
 import CompanyPortal from './pages/CompanyPortal';
 import './App.css'
-import InterviewReport from './pages/Report';
+import InterviewReport from './pages/ReportPage';
 import CompanyDetails from './components/CompanyDetails';
 import CustomCursor from './components/Cursor';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import MyAccount from './pages/MyAccount';
 import { AuthProvider } from './context/AuthContext';
+import PastInterviews from './pages/PastInterviews';
+import ReportPage from './pages/ReportPage';
 function App() {
   return (
     <>
@@ -26,6 +28,10 @@ function App() {
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/myaccount' element={<MyAccount/>}/>
+        <Route path='/pastinterviews' element={<PastInterviews/>}/>
+        {/* <Route path="/report/:companyName" element={<ReportPage />} /> */}
+        <Route path="/:userID/reports/:index" element={<InterviewReport/>} />
+
       </Routes>
     </Router>
     </AuthProvider>

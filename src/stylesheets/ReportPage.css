@@ -1,0 +1,138 @@
+.report-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e1e; /* Dark background */
+    align-items: center;
+    width: 100vw;
+  }
+  
+  .interview-report {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2c2c2c; /* Slightly lighter than background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    margin: 25px;
+  }
+  
+  .interview-report h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color:#fad94b; /* Light color for headings */
+  }
+
+  .interview-report strong
+  {
+    color: #fad94b;
+  }
+  
+  .score-overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    color: #f1f1f1; /* Light color for text */
+  }
+  
+  .score-overview div {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .improvement-section {
+    margin-top: 30px;
+    color: #f1f1f1; /* Light color for improvement section */
+  }
+  
+  .improvement-section h3
+  {
+    color: #fad94b;
+    margin-bottom: 10px;
+  }
+  .improvement-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .improvement-section li {
+    margin-bottom: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .button-container a
+  {
+    width: 100%;
+  }
+
+  .back-btn, .download-btn {
+    width: 48%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    color: #fff; 
+  }
+  
+  .back-btn {
+    background-color: #fad94b;
+  }
+
+  
+  .download-btn {
+    background-color: #fad94b;
+    color: #1e1e1e;
+  }
+  
+  .back-btn:hover {
+    background-color: #17e4e2;
+    transform: translateY(-2px);
+  }
+  
+  .download-btn:hover {
+    background-color: #17e4e2;
+    transform: translateY(-2px);
+  }
+  
+  .company-candidate-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .company-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .candidate-info p {
+    margin: 5px 0;
+    color: #f1f1f1 !important;
+  }
+  
+  .pie-chart-container {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .company-info {
+    color: #f1f1f1;
+  }
+
+  .candidate-info p
+  {
+    color: #f1f1f1;
+  }
+  

@@ -12,7 +12,8 @@
   min-height: 100vh;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
+  padding-top: 50px;
 }
 
 /* Title Styling */

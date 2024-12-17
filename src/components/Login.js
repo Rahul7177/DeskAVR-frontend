@@ -36,7 +36,7 @@ const Login = () => {
   
       if (response.ok) {
         setMessage("Login successful!");
-        const userDetails = { name: data.name, email: data.email }; // Extract user details
+        const userDetails = { name: data.name, email: data.email, userID: data.userID }; // Extract user details
         localStorage.setItem("authToken", data.token); // Save token
         localStorage.setItem("user", JSON.stringify(userDetails)); // Save user details
         login(userDetails); // Update AuthContext with user details

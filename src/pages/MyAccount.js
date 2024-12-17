@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import '../stylesheets/MyAccount.css'
 
 const MyAccount = () => {
   const { user, logout } = useAuth(); // Access user and logout from AuthContext

@@ -68,10 +68,14 @@ h2 {
 }
 
 .back-btn {
+  width: fit-content;
+  height: fit-content;
   background-color: #fad94b;
 }
 
 .download-btn {
+  width: fit-content;
+  height: fit-content;
   background-color: #fad94b;
   color: #1e1e1e;
 
