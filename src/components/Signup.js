@@ -6,48 +6,68 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     password: "",
     confirmPassword: "",
   });
 
   const [message, setMessage] = useState("");
+  const [messageColor, setMessageColor] = useState("#fad94b"); // Custom color for feedback messages
 
+  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, password, confirmPassword } = formData;
-
-    if (!name || !email || !password || !confirmPassword) {
+    const { name, email, phone, password, confirmPassword } = formData;
+    console.log("formData:", formData);
+    // Validate form fields
+    if (!name || !email || !phone || !password || !confirmPassword) {
       setMessage("All fields are required!");
+      setMessageColor("#ff4d4f"); // Error color
       return;
     }
 
     if (password !== confirmPassword) {
       setMessage("Passwords do not match!");
+      setMessageColor("#ff4d4f");
       return;
     }
 
+    if (phone.length !== 10 || !/^\d+$/.test(phone)) {
+      setMessage("Phone number must be 10 digits!");
+      setMessageColor("#ff4d4f");
+      return;
+    }
+
+    // Submit data to the backend
     try {
       const response = await fetch("http://localhost:5000/api/users/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, phone, password }), // Send form data to backend
       });
-
+      
+      console.log("response:", response);
       const data = await response.json();
+
       if (response.ok) {
-        setMessage(`Signup successful! Your user ID is ${data.userID}`);
+        setMessage(data.message || "Signup successful!");
+        setMessageColor("#4caf50"); // Success color
+        setFormData({ name: "", email: "", phone: "", password: "", confirmPassword: "" }); // Reset form
       } else {
         setMessage(data.error || "Error during signup!");
+        setMessageColor("#ff4d4f");
       }
     } catch (error) {
       setMessage("Error connecting to server!");
+      setMessageColor("#ff4d4f");
     }
   };
 
@@ -68,7 +88,7 @@ const Signup = () => {
               className="signup-input"
             />
           </div>
-          
+
           <div className="input-group">
             <label htmlFor="email" className="input-label">Email</label>
             <input
@@ -81,7 +101,20 @@ const Signup = () => {
               className="signup-input"
             />
           </div>
-          
+
+          <div className="input-group">
+            <label htmlFor="phone" className="input-label">Phone</label>
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              className="signup-input"
+            />
+          </div>
+
           <div className="input-group">
             <label htmlFor="password" className="input-label">Password</label>
             <input
@@ -94,7 +127,7 @@ const Signup = () => {
               className="signup-input"
             />
           </div>
-          
+
           <div className="input-group">
             <label htmlFor="confirmPassword" className="input-label">Confirm Password</label>
             <input
@@ -108,15 +141,14 @@ const Signup = () => {
             />
           </div>
 
-            <button type="submit" className="signup-btn">Signup</button>
+          <button type="submit" className="signup-btn">Signup</button>
           <div className="signup-links">
-
-              <Link to='/'>Need help?</Link>
-              <Link to='/login'>Login Instead</Link>
-
+            <Link to="/">Need help?</Link>
+            <Link to="/login">Login Instead</Link>
           </div>
-          {message && <p style={{ color: "#fad94b", textDecoration: "bold" }}>{message}</p>}
-
+          {message && (
+            <p style={{ color: messageColor, fontWeight: "bold" }}>{message}</p>
+          )}
         </form>
       </div>
     </div>

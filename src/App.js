@@ -13,6 +13,8 @@ import MyAccount from './pages/MyAccount';
 import { AuthProvider } from './context/AuthContext';
 import PastInterviews from './pages/PastInterviews';
 import ReportPage from './pages/ReportPage';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 function App() {
   return (
     <>
@@ -31,6 +33,8 @@ function App() {
         <Route path='/pastinterviews' element={<PastInterviews/>}/>
         {/* <Route path="/report/:companyName" element={<ReportPage />} /> */}
         <Route path="/:userID/reports/:index" element={<InterviewReport/>} />
+        <Route path="/adminlogin" element={<AdminLogin/>} />
+        <Route path="/admin/dashboard" element={<AdminDashboard/>} />
 
       </Routes>
     </Router>

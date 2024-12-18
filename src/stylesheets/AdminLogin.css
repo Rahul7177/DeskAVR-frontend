@@ -1,0 +1,222 @@
+/* Login.css (Existing - No changes needed) */
+.login-section {
+    min-height: 100vh;
+    width: 100%;
+    margin-top: 50px;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 50px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.login-container {
+    max-width: 60%;
+    min-width: 50%;
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.login-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fad94b;
+}
+
+.login-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.login-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+    transform: scale(1.05);
+}
+
+.login-image {
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.login-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.login-card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #dcdcdc;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.input-group {
+    width: 80%;
+}
+
+.login-input,
+.login-textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    margin-bottom: 20px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+.login-textarea {
+    height: 150px;
+    resize: none;
+}
+
+.login-btn {
+    margin-bottom: 15px;
+    padding: 12px 24px;
+    background-color: #fad94b;
+    color: #161616;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-btn:hover {
+    background-color: #17e4e2;
+    transform: translateY(-2px);
+}
+
+.input-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.login-links {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.login-links a {
+    color: #fad94b;
+}
+
+/* AdminLogin.css (New) */
+.admin-login-section { /* Use a different class name */
+    min-height: 100vh;
+    width: 100%;
+    margin-top: 50px;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 50px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.admin-login-container { /* Use a different class name */
+    max-width: 60%;
+    min-width: 50%;
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.admin-login-title { /* Use a different class name */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fad94b;
+}
+
+.admin-login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.admin-login-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    margin-bottom: 20px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+.admin-login-btn {
+    margin-bottom: 15px;
+    padding: 12px 24px;
+    background-color: #fad94b;
+    color: #161616;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-login-btn:hover {
+    background-color: #17e4e2;
+    transform: translateY(-2px);
+}
+
+.admin-login-links {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.admin-login-links a {
+    color: #fad94b;
+}
