@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
+
+.company-details-container
+{
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
 .company-details-page {
   display: flex;
   flex-direction: column;
@@ -13,6 +24,7 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Darker shadow for dark theme */
   font-family: 'Arial', sans-serif;
   color: #e0e0e0; /* Lighter text color for dark theme */
+  overflow-x: hidden;
 }
 
 .comp-h1 {
@@ -58,7 +70,7 @@
 
 .subscription-info {
   background-color: #282828; /* Darker background for the subscription section */
-  padding: 20px;
+  padding: 0px;
   border-radius: 8px;
   width: 100%;
   height: 100%;
@@ -67,6 +79,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  overflow: hidden;
 }
 
 .subscription-info img {
@@ -183,11 +196,17 @@
   width: 100%;
   height: 100%;
   margin-top: 50px;
+  background: linear-gradient(180deg, #ff0055,#ff0040,#ff0000);
+  background-size: 200% 200%;  
+  animation: gradientAnimation 5s ease infinite;
+  white-space: nowrap;
 }
 
 .discount-content
 {
   height: 100%;
+  width: fit-content;
+  /* max-width: 50%; */
 }
 .discount-section {
   display: flex;
@@ -195,17 +214,17 @@
   justify-content: center;
   align-items: center;
   text-align: left;
-  width: 40%;
+  max-width: 40%;
   height: 80vh;
   font-family: "Caveat", cursive;
   font-family: "Bruno Ace", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-decoration: none;
-  background: linear-gradient(135deg, #fad94b, #7300ff);
-  background-size: 200% 200%;  /* Ensure the gradient is large enough to animate */
+  /* background: linear-gradient(135deg, #fad94b, #7300ff);
+  background-size: 200% 200%;  
   animation: gradientAnimation 3s ease infinite;
-  white-space: nowrap;
+  white-space: nowrap; */
   padding: 20px; /* Add some padding for better visual appearance */
   border-radius: 10px; /* Optional: rounded corners for the background box */
   line-height: 60px;
@@ -228,7 +247,7 @@
 
 .discount-title
 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-family: "Caveat", cursive;
 }
 
@@ -242,8 +261,14 @@
   0% {
     background-position: 0% 50%;
   }
+  25% {
+    background-position: 75% 25%;
+  }
   50% {
     background-position: 100% 50%;
+  }
+  75% {
+    background-position: 0% 25%;
   }
   100% {
     background-position: 0% 50%;
@@ -259,7 +284,7 @@
 
 .original-price {
   text-decoration: line-through;
-  color: #bb0000; /* Light gray color for original price */
+  color: #000000; /* Light gray color for original price */
 }
 
 .discount-price {
@@ -320,3 +345,161 @@
     align-items: center;
   }
 }
+
+.subscription-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #282828;
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  /* max-width: 1200px; */
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.snowflake {
+  position: absolute;
+  width: 30px; /* Adjust size as needed */
+  height: 30px;
+  opacity: 0.7;
+  animation: snowfall 7s linear infinite; /* Adjust animation duration */
+  pointer-events: none; /* Prevent snowflakes from interfering with clicks */
+}
+
+.snowflake img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the whole image is visible */
+}
+
+/* Snowflake positioning and delays (adjust as needed) */
+.snowflake:nth-child(1) {
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.snowflake:nth-child(2) {
+  left: 15%;
+  animation-delay: 1s;
+  transform: scale(0.8);
+}
+
+.snowflake:nth-child(3) {
+  left: 25%;
+  animation-delay: 2s;
+  transform: scale(1.2);
+}
+
+.snowflake:nth-child(4) {
+  left: 35%;
+  animation-delay: 0.5s;
+}
+
+.snowflake:nth-child(5) {
+  left: 45%;
+  animation-delay: 1.5s;
+  transform: scale(0.9);
+}
+
+.snowflake:nth-child(6) {
+  left: 55%;
+  top: 10%;
+  animation-delay: 2.5s;
+}
+
+.snowflake:nth-child(7) {
+  left: 65%;
+  animation-delay: 0.8s;
+  transform: scale(1.1);
+}
+
+.snowflake:nth-child(8) {
+  left: 75%;
+  animation-delay: 1.8s;
+}
+
+.snowflake:nth-child(9) {
+  left: 85%;
+  animation-delay: 3.2s;
+  transform: scale(1.3);
+}
+
+.snowflake:nth-child(10) {
+  left: 95%;
+  animation-delay: 0.3s;
+}
+.snowflake:nth-child(11) {
+  left: 2%;
+  top: 50px;
+  animation-delay: 3s;
+}
+.snowflake:nth-child(12) {
+  left: 98%;
+  top: 0;
+  animation-delay: 2.3s;
+  transform: scale(0.7);
+}
+.snowflake:nth-child(13) {
+  left: 98%;
+  top: 0;
+  animation-delay: 2.3s;
+  transform: scale(0.7);
+}
+.snowflake:nth-child(14) {
+  left: 75%;
+  top: 0;
+  animation-delay: 2.3s;
+  transform: scale(0.7);
+}
+.snowflake:nth-child(15) {
+  left: 6%;
+  top: 20px;
+  animation-delay: 2.3s;
+  transform: scale(0.7);
+}
+.snowflake:nth-child(16) {
+  left: 18%;
+  top: 0;
+  animation-delay: 2.3s;
+  transform: scale(0.7);
+}
+.snowflake:nth-child(17) {
+  left: 48%;
+  top: 0;
+  animation-delay: 2.3s;
+  transform: scale(0.7);
+}
+.snowflake:nth-child(18) {
+  left: 64%;
+  top: 50px;
+  animation-delay: 2.3s;
+  transform: scale(0.7);
+}
+.snowflake:nth-child(19) {
+  left: 50%;
+  top: 0;
+  animation-delay: 2.3s;
+  transform: scale(0.7);
+}
+.snowflake:nth-child(20) {
+  left: 42%;
+  top: 10%;
+  animation-delay: 2.3s;
+  transform: scale(0.7);
+}
+
+@keyframes snowfall {
+  0% {
+      transform: translate3d(0, -100%, 0);
+  }
+  100% {
+      transform: translate3d(0, 100vh, 0);
+  }
+}
+

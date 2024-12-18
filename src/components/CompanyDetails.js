@@ -6,6 +6,7 @@ import axios from 'axios';
 import QRCode from '../assets/logos/QR.png';
 import { useAuth } from '../context/AuthContext';
 import discount from '../assets/videos/discount.gif';
+import snowflakeImage from '../assets/logos/snowflake.png'
 
 function CompanyDetails() {
     const location = useLocation();
@@ -134,14 +135,35 @@ function CompanyDetails() {
     };
 
     return (
-        <>
+        <div className='company-details-container'>
             <Navbar />
             {!isSubscribed && (
                 <div className="subscription-info">
+                     {/* Snowflakes using image */}
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
+                <div className="snowflake"><img src={snowflakeImage} alt="Snowflake" /></div>
                     <div className="discount-section">
                         <div className="discount-content">
+                            <h3 className="discount-title">Early Bird Discount + Christmas Offer</h3>
                             <img src={discount} alt="Discount"/>
-                            <h3 className="discount-title">Early Bird Discount!</h3>
                             <p className="discount-price">
                                 <span className="original-price">₹4999</span> ₹499 Only
                             </p>
@@ -215,7 +237,7 @@ function CompanyDetails() {
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
 }
 
