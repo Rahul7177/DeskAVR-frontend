@@ -15,7 +15,9 @@ function CompanyDetails() {
     const { user, login } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
-    const [name, setName] = useState('');
+    const [key, setKey] = useState('');
+    const [enteredKey, setEnteredKey] = useState('');
+    const [userKey, setUserKey] = useState(null);
     const [email, setEmail] = useState('');
     const [resume, setResume] = useState(null);
     const [selectedDate, setSelectedDate] = useState('');
@@ -24,6 +26,7 @@ function CompanyDetails() {
     const [transactions, setTransactions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [keyError, setKeyError] = useState(null);
 
     const sanitizeString = (str) => str.replace(/[^\w\s]/gi, '');
 
@@ -62,7 +65,10 @@ function CompanyDetails() {
                   setLoading(false);
               }
           };
+
           fetchUserData();
+
+          
       }
   }, [user, location, login]); // Removed navigate from dependency array
 
@@ -86,10 +92,42 @@ function CompanyDetails() {
         }
     };
 
-    const handleModalSubmit = () => {
-        setIsModalOpen(false);
-        setIsConfirmationOpen(true);
+    const handleModalSubmit = async () => {
+        if (!enteredKey) {
+            setKeyError('Please enter your key.');
+            return;
+        }
+    
+        try {
+            const token = localStorage.getItem('authToken');
+            const response = await axios.put(`http://localhost:5000/api/users/clearKey/${user.userID}`, { key: enteredKey }, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+    
+            if (response.status === 200) {
+                console.log('Download complete.');
+                setEnteredKey('');
+                setUserKey('');
+                setKeyError(null);
+                setIsModalOpen(false);
+                alert('Software downloaded successfully!');
+            }
+        } catch (error) {
+            console.error('Error downloading software:', error);
+            if (error.response && error.response.status === 400) {
+                setKeyError('Enter a valid key');
+            } else if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+                localStorage.removeItem('authToken');
+                login(null);
+                navigate('/login', { state: { from: location } });
+            } else {
+                setKeyError('Failed to download software. Please try again.');
+            }
+        }
     };
+    
 
     const handleModalClose = () => {
         setIsModalOpen(false);
@@ -203,39 +241,31 @@ function CompanyDetails() {
                 </div>
 
                 {isModalOpen && (
-                    <div className="modal-overlay">
-                        <div className="modal-content">
-                            <h3>Enter Your Details</h3>
-                            <label htmlFor="name">Name:</label>
-                            <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
-                            <label htmlFor="email">Email:</label>
-                            <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                            <label htmlFor="resume">Upload Resume:</label>
-                            <input type="file" id="resume" onChange={(e) => setResume(e.target.files[0])} />
-                            <label htmlFor="date">Select Date:</label>
-                            <input type="date" id="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} />
-                            <div className="modal-buttons">
-                                <button className="modal-submit" onClick={handleModalSubmit}>Submit</button>
-                                <button className="modal-close" onClick={handleModalClose}>Close</button>
-                            </div>
-                        </div>
-                    </div>
-                )}
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <h3>Enter Key to Download</h3>
+      <p>To get your key: Go to Accounts - you can find your key in the My Account page.</p>
+      <label htmlFor="key">Key:</label>
+      <input
+        type="text"
+        id="key"
+        value={enteredKey}
+        onChange={(e) => setEnteredKey(e.target.value)}
+      />
+      {keyError && <p className="error-text">{keyError}</p>}
+      <div className="modal-buttons">
+        <button className="modal-submit" onClick={handleModalSubmit}>
+          Download Software
+        </button>
+        <button className="modal-close" onClick={handleModalClose}>
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
 
-                {isConfirmationOpen && (
-                    <div className="modal-overlay">
-                        <div className="modal-content">
-                            <h3>Interview Scheduled</h3>
-                            <p><strong>Name:</strong> {name}</p>
-                            <p><strong>Email:</strong> {email}</p>
-                            <p><strong>Resume:</strong> {resume ? resume.name : 'Not uploaded'}</p>
-                            <p><strong>Date:</strong> {selectedDate}</p>
-                            <div className="modal-buttons">
-                                <button className="modal-close" onClick={handleConfirmationClose}>Close</button>
-                            </div>
-                        </div>
-                    </div>
-                )}
+
             </div>
         </div>
     );

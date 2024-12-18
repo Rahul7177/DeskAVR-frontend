@@ -1,17 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
+import axios from 'axios'; // Import axios
 import "../stylesheets/MyAccount.css";
 
 const MyAccount = () => {
   const { user, logout } = useAuth();
   const [isPasswordChanging, setIsPasswordChanging] = useState(false);
   const [message, setMessage] = useState("");
+  const [key, setKey] = useState(null); // State to store user's key
+
+  
+  useEffect(() => {
+    const fetchUserKey = async () => {
+      if (!user) return; // Don't fetch if no user
+  
+      try {
+        if (user && user.userID) { // Check if user and userID exist
+          const response = await axios.get(`http://localhost:5000/api/users/${user.userID}`);
+          console.log(response.data);
+          setKey(response.data.key); // Set the key in state
+        }
+      } catch (error) {
+        console.error('Error fetching user key:', error);
+        setMessage('Failed to retrieve key. Please try again later.');
+      }
+    };
+  
+    fetchUserKey();
+  }, [user]);
 
   // Handle password change logic (Placeholder)
   const handlePasswordChange = (e) => {
     e.preventDefault();
     setMessage("Password change feature is coming soon.");
   };
+
+  console.log(user);
 
   // Render fallback if user is not logged in
   if (!user) {
@@ -43,6 +67,11 @@ const MyAccount = () => {
           <p>
             <strong>Email:</strong> {user.email}
           </p>
+          {key && ( // Conditionally render key only if fetched
+            <p>
+              <strong>Key:</strong> {key}
+            </p>
+          )}
         </div>
 
         {/* Password Change Section */}
