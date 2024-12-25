@@ -19,7 +19,7 @@ function App() {
   return (
     <>
     <AuthProvider>
-    <CustomCursor/>
+    {/* <CustomCursor/> */}
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
