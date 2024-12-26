@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import '../stylesheets/CompanyDetails.css';
 import Navbar from './Navbar';
 import axios from 'axios';
-import QRCode from '../assets/logos/QR.png';
+import QRCode from '../assets/logos/QR.jpg';
 import { useAuth } from '../context/AuthContext';
 import discount from '../assets/videos/discount90.gif';
 import snowflakeImage from '../assets/logos/snowflake.png';
