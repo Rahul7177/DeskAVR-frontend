@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext'; // Import useAuth
 import '../stylesheets/CandidatePortal.css';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 function PastInterviews() {
   const { user } = useAuth(); // Access user from context
@@ -84,6 +85,7 @@ function PastInterviews() {
       </div>
     </div>
     </div>
+    <Footer/>
     </>
   );
 }

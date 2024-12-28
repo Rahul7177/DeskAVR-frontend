@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: center; /* Center the filter section */
 }
 
 .user-categories label {
@@ -85,4 +86,87 @@
 .user-info ul {
     list-style-type: disc; /* Use disc bullets */
     padding-left: 20px; /* Add left padding for indentation */
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .user-categories {
+        flex-direction: column; /* Stack filter section vertically */
+        align-items: flex-start;
+    }
+
+    .user-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for smaller screens */
+    }
+
+    .user-card {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .approve-btn,
+    .remove-btn {
+        font-size: 0.9rem; /* Reduce button font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .user-categories {
+        gap: 5px;
+    }
+
+    .user-card {
+        padding: 10px; /* Further reduce padding */
+        min-height: 180px; /* Adjust minimum height */
+    }
+
+    .approve-btn,
+    .remove-btn {
+        padding: 8px 12px; /* Smaller padding for buttons */
+    }
+
+    .user-info h3 {
+        font-size: 1rem; /* Reduce heading font size */
+    }
+
+    .user-info p {
+        font-size: 0.9rem; /* Reduce font size for text */
+    }
+
+    .user-actions {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center buttons */
+    }
+}
+
+@media (max-width: 320px) {
+    .admin-dashboard {
+        padding: 10px; /* Reduce padding for very small screens */
+    }
+
+    .user-categories {
+        align-items: center;
+    }
+
+    .user-list {
+        grid-template-columns: 1fr; /* Stack user cards in a single column */
+    }
+
+    .user-card {
+        padding: 8px; /* Further reduce padding */
+    }
+
+    .user-info h3 {
+        font-size: 0.9rem; /* Smaller heading font */
+    }
+
+    .user-info p,
+    .user-info ul {
+        font-size: 0.8rem; /* Adjust text size for small screens */
+    }
+
+    .approve-btn,
+    .remove-btn {
+        font-size: 0.8rem; /* Smaller buttons */
+        padding: 6px 10px; /* Smaller button padding */
+    }
 }

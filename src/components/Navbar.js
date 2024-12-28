@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';  // Import useNavigate for redirecting
+import { Link, useNavigate } from 'react-router-dom';  
 import { useAuth } from '../context/AuthContext';
-import '../stylesheets/Navbar.css'; // Import the CSS for styling
+import '../stylesheets/Navbar.css'; 
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuActive, setIsMenuActive] = useState(false);
 
-  const navigate = useNavigate(); // Access the navigate function for redirecting
+  const navigate = useNavigate(); 
 
-  // Check if the user is logged in by checking a token in local storage
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     if (token) {
@@ -18,30 +18,24 @@ const Navbar = () => {
     }
   }, []);
 
-  // Handle logout by removing token from local storage and clearing user data
   const handleLogout = () => {
-    // Clear localStorage
-    localStorage.removeItem('authToken'); // Remove the token to log out the user
-    
-    // Clear sessionStorage (if any data is stored there)
+    localStorage.removeItem('authToken'); 
     sessionStorage.removeItem('authToken');
+    document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";  
+    document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";        
     
-    // Clear cookies related to the user session
-    document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";  // Clear authToken cookie
-    document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";        // Clear user cookie if you have one
+    setIsLoggedIn(false); 
+    logout(); 
     
-    setIsLoggedIn(false); // Set logged-in state to false
-    logout(); // Ensure that any context data is cleared as well
-    
-    // Redirect user to login page after logout
     navigate('/login');
   };
-  
-  
 
-  // Toggle the dropdown menu
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuActive(!isMenuActive);
   };
 
   useEffect(() => {
@@ -54,10 +48,12 @@ const Navbar = () => {
         <div className="navbar-brand">
           <Link to={'/'}><h1>DeskAVR</h1></Link>
         </div>
-        <ul className="navbar-menu">
+        <ul className={`navbar-menu ${isMenuActive ? 'active' : ''}`}>
           <li><Link to="/">Home</Link></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><Link to="/blogs">Blogs</Link></li>
+
           <li className="navbar-account" onClick={toggleDropdown}>
             <a href="#">
               Account
@@ -76,7 +72,7 @@ const Navbar = () => {
             )}
           </li>
         </ul>
-        <div className="navbar-toggle" id="navbar-toggle">
+        <div className="navbar-toggle" onClick={toggleMenu}>
           <span className="navbar-toggle-icon"></span>
           <span className="navbar-toggle-icon"></span>
           <span className="navbar-toggle-icon"></span>

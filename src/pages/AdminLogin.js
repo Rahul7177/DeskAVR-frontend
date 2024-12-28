@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import '../stylesheets/AdminLogin.css'; // Import the CSS
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const AdminLogin = () => {
     const [formData, setFormData] = useState({ email: "", password: "" });
@@ -75,6 +76,7 @@ const AdminLogin = () => {
                 </form>
             </div>
         </div>
+        <Footer/>
         </>
     );
 };

@@ -48,7 +48,6 @@ body {
 }
 
 /* Buttons */
-
 .my-account-container button {
   border: none;
   padding: 12px 20px;
@@ -113,4 +112,91 @@ body {
   text-align: center;
   color: #00ff00;
   margin-top: 15px;
+}
+
+/* Responsive Styles */
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .my-account-container {
+    padding: 20px; /* Reduce padding */
+    max-width: 90%; /* Increase container width */
+  }
+
+  .my-account-title {
+    font-size: 1.8rem; /* Slightly smaller title */
+  }
+
+  .password-input {
+    font-size: 0.9rem; /* Adjust input font size */
+    padding: 10px;
+  }
+
+  .my-account-container button {
+    font-size: 0.9rem;
+    padding: 10px 16px; /* Smaller buttons */
+  }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .my-account-container {
+    padding: 15px; /* Reduce padding for narrow screens */
+    max-width: 95%; /* Nearly full width */
+  }
+
+  .my-account-title {
+    font-size: 1.6rem; /* Further reduce title size */
+    margin-bottom: 15px;
+  }
+
+  .account-details {
+    padding: 15px;
+  }
+
+  .password-input {
+    font-size: 0.85rem; /* Smaller input font */
+    padding: 8px;
+  }
+
+  .my-account-container button {
+    font-size: 0.85rem;
+    padding: 8px 12px; /* Adjust button size */
+  }
+
+  .status-message {
+    font-size: 0.9rem; /* Slightly smaller status message */
+  }
+}
+
+/* Ultra-Narrow Screens (max-width: 320px) */
+@media (max-width: 320px) {
+  .my-account-container {
+    padding: 10px;
+    max-width: 100%; /* Full width */
+    border-radius: 8px; /* Reduce border radius */
+  }
+
+  .my-account-title {
+    font-size: 1.4rem; /* Small title size */
+    margin-bottom: 10px;
+  }
+
+  .account-details {
+    padding: 10px; /* Reduce padding */
+  }
+
+  .password-input {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+
+  .my-account-container button {
+    font-size: 0.75rem;
+    padding: 6px 10px; /* Smaller buttons */
+  }
+
+  .status-message {
+    font-size: 0.8rem; /* Compact status message */
+  }
 }

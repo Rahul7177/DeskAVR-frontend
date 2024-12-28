@@ -1,0 +1,212 @@
+.new-year-sale-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #0f0c29, #13102b, #030303);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .new-year-sale-container {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .new-year-sale-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fdfdfd;
+    text-transform: uppercase;
+    text-shadow: 
+      0 0 5px #ff007f, 
+      0 0 10px #ff007f, 
+      0 0 20px #ff007f, 
+      0 0 40px #ff4da6, 
+      0 0 80px #ff80bf;
+    margin-bottom: 20px;
+    animation: neon-flicker 2s infinite alternate;
+  }
+  
+  @keyframes neon-flicker {
+    0% {
+      text-shadow: 
+        0 0 5px #ff007f, 
+        0 0 10px #ff007f, 
+        0 0 20px #ff007f, 
+        0 0 40px #ff4da6, 
+        0 0 80px #ff80bf;
+    }
+    50% {
+      text-shadow: 
+        0 0 5px #ff007f, 
+        0 0 15px #ff4da6, 
+        0 0 25px #ff80bf, 
+        0 0 50px #ff007f, 
+        0 0 100px #ff4da6;
+    }
+    100% {
+      text-shadow: 
+        0 0 5px #ff007f, 
+        0 0 10px #ff007f, 
+        0 0 20px #ff007f, 
+        0 0 40px #ff4da6, 
+        0 0 80px #ff80bf;
+    }
+  }
+  
+  .new-year-sale-description {
+    font-size: 1.5rem;
+    color: #d1d1d1;
+    margin-bottom: 30px;
+  }
+  
+  .new-year-sale-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(90deg, #ff007f, #ff4da6);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff4da6, 0 0 20px #ff4da6;
+    transition: all 0.3s ease;
+  }
+  
+  .new-year-sale-button:hover {
+    background: linear-gradient(90deg, #ff4da6, #ff80bf);
+    box-shadow: 0 0 20px #ff80bf, 0 0 40px #ff80bf;
+    transform: scale(1.05);
+  }
+  
+  /* Fireworks Animation */
+  .fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    border-radius: 50%;
+    animation: firework-animation 2s infinite ease-out;
+  }
+  
+  .firework:nth-child(1) {
+    left: 10%;
+    top:20%;
+    animation-delay: 0s;
+  }
+  
+  .firework:nth-child(2) {
+    left: 50%;
+    top:5%;
+    animation-delay: 0.5s;
+  }
+  
+  .firework:nth-child(3) {
+    left: 80%;
+    top:10%;
+    animation-delay: 1s;
+  }
+  .firework:nth-child(4) {
+    left: 30%;
+    top:70%;
+    animation-delay: 1s;
+  }
+  .firework:nth-child(5) {
+    left: 50%;
+    top:90%;
+    animation-delay: 1s;
+  }
+  .firework:nth-child(6) {
+    left: 65%;
+    top:30%;
+    animation-delay: 1s;
+  }
+  .firework:nth-child(7) {
+    left: 90%;
+    top:60%;
+    animation-delay: 1s;
+  }
+  .firework:nth-child(8) {
+    left: 75%;
+    top:80%;
+    animation-delay: 1s;
+  }
+  
+  @keyframes firework-animation {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+      box-shadow: 
+        0 0 10px #ff8c00, 
+        0 0 20px #ffcc00, 
+        0 0 30px #ff0000;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+      box-shadow: 
+        0 0 0px #ff9500, 
+        0 0 0px #ffcc00, 
+        0 0 0px #ff5500;
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .new-year-sale-title {
+      font-size: 2.5rem;
+    }
+    .new-year-sale-description {
+      font-size: 1.3rem;
+    }
+    .new-year-sale-button {
+      font-size: 1rem;
+      padding: 12px 25px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .new-year-sale-title {
+      font-size: 2rem;
+    }
+    .new-year-sale-description {
+      font-size: 1.1rem;
+    }
+    .new-year-sale-button {
+      font-size: 0.9rem;
+      padding: 10px 20px;
+    }
+    .fireworks-container {
+      display: none; /* Disable fireworks animation on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .new-year-sale-title {
+      font-size: 1.8rem;
+    }
+    .new-year-sale-description {
+      font-size: 1rem;
+    }
+    .new-year-sale-button {
+      font-size: 0.8rem;
+      padding: 8px 15px;
+    }
+  }
+  
+  

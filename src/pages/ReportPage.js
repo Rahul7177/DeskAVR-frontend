@@ -7,6 +7,7 @@ import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import '../stylesheets/ReportPage.css';
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function InterviewReport() {
   const { userID, index } = useParams();
@@ -162,6 +163,7 @@ function InterviewReport() {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
   );
 }

@@ -5,6 +5,10 @@ import '../stylesheets/Homepage.css';
 import trailer from '../assets/videos/trailer.mp4';
 import AboutUs from '../components/About';
 import ContactUs from '../components/Contact';
+import Founders from '../components/Founders';
+import UserManual from '../components/UserManual';
+import NewYearSale from '../components/Sale';
+import Footer from '../components/Footer';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -15,7 +19,7 @@ const HomePage = () => {
       <div className="homepage-container">
         <div className="hero-section">
           <div className="hero-video">
-            <video src={trailer} autoPlay loop muted playsInline></video>
+            <video src={trailer} autoPlay loop muted playsInline preload="auto"></video>
           </div>
           <div className="hero-overlay"></div> {/* Dark overlay */}
           <div className="hero-content">
@@ -34,8 +38,12 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <NewYearSale/>
       <AboutUs/>
+      <UserManual/>
+      <Founders/>
       <ContactUs/>
+      <Footer/>
     </>
   );
 };

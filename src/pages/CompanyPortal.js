@@ -5,6 +5,7 @@ import '../stylesheets/CompanyPortal.css'; // Import your custom CSS
 import Navbar from '../components/Navbar';
 import business from '../assets/logos/business.png';
 import timer from '../assets/videos/timer.gif'
+import Footer from '../components/Footer';
 
 const CompanyPortal = () => {
   const [step, setStep] = useState(1); // Step progression
@@ -95,6 +96,7 @@ const CompanyPortal = () => {
         <img src={timer}></img>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

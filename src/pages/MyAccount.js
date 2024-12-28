@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import axios from 'axios'; // Import axios
 import "../stylesheets/MyAccount.css";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 const MyAccount = () => {
   const { user, logout } = useAuth();
@@ -52,6 +54,8 @@ const MyAccount = () => {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className="my-account-page">
       <div className="my-account-container">
         <h2 className="my-account-title">My Account</h2>
@@ -104,6 +108,8 @@ const MyAccount = () => {
         {message && <p className="status-message">{message}</p>}
       </div>
     </div>
+      <Footer/>
+    </>
   );
 };
 

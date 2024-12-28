@@ -15,6 +15,8 @@ import PastInterviews from './pages/PastInterviews';
 import ReportPage from './pages/ReportPage';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
+import BlogPage from './pages/Blogs';
+import BlogDetail from './pages/BlogPage';
 function App() {
   return (
     <>
@@ -35,6 +37,8 @@ function App() {
         <Route path="/:userID/reports/:index" element={<InterviewReport/>} />
         <Route path="/adminlogin" element={<AdminLogin/>} />
         <Route path="/admin/dashboard" element={<AdminDashboard/>} />
+        <Route path="/blogs" element={<BlogPage/>} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
 
       </Routes>
     </Router>

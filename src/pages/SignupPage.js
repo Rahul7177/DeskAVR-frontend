@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Signup from '../components/Signup'
+import Footer from '../components/Footer'
 // import Footer from '../components/Footer'
 
 const SignupPage = () => {
@@ -9,6 +10,7 @@ const SignupPage = () => {
     <Navbar/>
     <Signup/>
     {/* <Footer/> */}
+    <Footer/>
     </div>
   )
 }

@@ -7,6 +7,8 @@ import QRCode from '../assets/logos/QR.jpg';
 import { useAuth } from '../context/AuthContext';
 import discount from '../assets/videos/discount90.gif';
 import snowflakeImage from '../assets/logos/snowflake.png';
+import Footer from './Footer';
+import NewYearSale from './Sale';
 
 
 function CompanyDetails() {
@@ -183,6 +185,8 @@ function CompanyDetails() {
         <div className="company-details-container">
             <Navbar />
             {!isSubscribed && (
+                <>
+                <NewYearSale/>
                 <div className="subscription-info">
                     {/* Snowflakes using image */}
                     {[...Array(20)].map((_, i) => (
@@ -192,7 +196,7 @@ function CompanyDetails() {
                     ))}
                     <div className="discount-section">
                         <div className="discount-content">
-                            <h3 className="discount-title">Early Bird Discount + Christmas Offer</h3>
+                            <h3 className="discount-title">Early Bird Discount + New Year Offer</h3>
                             <img src={discount} alt="Discount" />
                             <p className="discount-price">
                                 <span className="original-price">₹4999</span> ₹499 Only
@@ -219,6 +223,7 @@ function CompanyDetails() {
                         )}
                     </div>
                 </div>
+                </>
             )}
             <div className="company-details-page">
                 <div className="company-details">
@@ -268,6 +273,7 @@ function CompanyDetails() {
                     </div>
                 )}
             </div>
+            <Footer/>
         </div>
     );
 }

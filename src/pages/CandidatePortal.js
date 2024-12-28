@@ -11,6 +11,7 @@ import adobe_logo from '../assets/logos/adobe.png';
 import bofa_logo from '../assets/logos/bofa.png';
 import tcs_logo from '../assets/logos/tcs.png';
 import infosys_logo from '../assets/logos/infosys.png';
+import Footer from "../components/Footer";
 
 function CandidatePortal() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -41,8 +42,9 @@ function CandidatePortal() {
   };
 
   return (
-    <div className="candidate-portal">
+    <>
       <Navbar />
+    <div className="candidate-portal">
       <h2 id="candidate-title">Candidate Portal</h2>
 
       <div className="search-container">
@@ -86,6 +88,8 @@ function CandidatePortal() {
         </div>
       </div>
     </div>
+      <Footer/>
+    </>
   );
 }
 

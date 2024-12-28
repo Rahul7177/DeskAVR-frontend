@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../stylesheets/AdminDashboard.css';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const AdminDashboard = () => {
     const [users, setUsers] = useState([]);
@@ -147,6 +148,7 @@ const AdminDashboard = () => {
                     ))}
                 </div>
             </div>
+            <Footer/>
         </>
     );
 };

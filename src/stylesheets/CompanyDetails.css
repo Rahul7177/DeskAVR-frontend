@@ -192,14 +192,24 @@
   align-items: center; /* Vertically align the content */
   background-color: #282828; /* Darker background for the subscription section */
   padding: 20px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   width: 100%;
   height: 100%;
   margin-top: 50px;
   background: linear-gradient(180deg, #ff0055,#ff0040,#ff0000);
+  background: linear-gradient(135deg, #0f0c29, #13102b, #030303);
   background-size: 200% 200%;  
   animation: gradientAnimation 5s ease infinite;
   white-space: nowrap;
+  text-transform: uppercase;
+    text-shadow: 
+      0 0 5px #ff007f, 
+      0 0 10px #ff007f, 
+      0 0 20px #ff007f, 
+      0 0 40px #ff4da6, 
+      0 0 80px #ff80bf;
+    margin-bottom: 20px;
+    animation: neon-flicker 2s infinite alternate;
 }
 
 .discount-content
@@ -226,7 +236,7 @@
   animation: gradientAnimation 3s ease infinite;
   white-space: nowrap; */
   padding: 20px; /* Add some padding for better visual appearance */
-  border-radius: 10px; /* Optional: rounded corners for the background box */
+  /* border-radius: 10px;  */
   line-height: 60px;
 }
 
@@ -247,7 +257,7 @@
 
 .discount-title
 {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-family: "Caveat", cursive;
 }
 
@@ -303,8 +313,14 @@
   height: 100%;
 }
 
+.qr-transaction-section img
+{
+  max-width: 350px;
+  height: 250px;
+}
 .qr-code {
-  max-width: 180px;
+  max-width: 250px;
+  height: 250px;
   margin-bottom: 15px;
 }
 
@@ -501,5 +517,57 @@
   100% {
       transform: translate3d(0, 100vh, 0);
   }
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .discount-content, .qr-transaction-section {
+      min-width: 250px;
+  }
+}
+@media (max-width: 768px) {
+  .comp-h1 {
+      font-size: 1.8rem;
+  }
+
+  .comp-p {
+      font-size: 0.9rem;
+  }
+
+  .company-details-logo {
+      max-width: 100px;
+  }
+
+  .subscription-info {
+      flex-direction: column;
+      padding: 15px;
+  }
+
+  .discount-content,
+  .qr-transaction-section {
+      width: 90%;
+      min-width: unset;
+      margin-bottom: 20px;
+  }
+  .discount-title, .discount-description{
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .comp-h1 {
+      font-size: 1.5rem;
+  }
+
+  .comp-p {
+      font-size: 0.8rem;
+  }
+  .discount-title, .discount-description{
+      font-size: 0.9rem;
+  }
+  .modal-content {
+      padding: 15px;
+  }
+  
 }
 
