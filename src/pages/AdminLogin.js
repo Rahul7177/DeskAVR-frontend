@@ -10,6 +10,7 @@ const AdminLogin = () => {
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
     const { login } = useAuth();
+    const API_URL = process.env.REACT_APP_API_URL;
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,7 +21,7 @@ const AdminLogin = () => {
         const { email, password } = formData;
 
         try {
-            const endpoint = "http://localhost:5000/api/admin/adminlogin";
+            const endpoint = `${API_URL}/api/admin/adminlogin`;
 
             const response = await fetch(endpoint, {
                 method: "POST",

@@ -8,6 +8,7 @@ const Login = () => {
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
     const { login } = useAuth();
+    const API_URL = process.env.REACT_APP_API_URL;
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,7 +25,7 @@ const Login = () => {
         }
 
         try {
-            const endpoint = "http://localhost:5000/api/users/login";
+            const endpoint = `${API_URL}/api/users/login`;
 
             const response = await fetch(endpoint, {
                 method: "POST",

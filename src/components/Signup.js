@@ -13,7 +13,7 @@ const Signup = () => {
 
   const [message, setMessage] = useState("");
   const [messageColor, setMessageColor] = useState("#fad94b"); // Custom color for feedback messages
-
+  const API_URL = process.env.REACT_APP_API_URL;
   // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,7 +46,7 @@ const Signup = () => {
 
     // Submit data to the backend
     try {
-      const response = await fetch("http://localhost:5000/api/users/signup", {
+      const response = await fetch(`${API_URL}/api/users/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

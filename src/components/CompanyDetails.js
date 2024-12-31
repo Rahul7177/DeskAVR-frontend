@@ -24,6 +24,8 @@ function CompanyDetails() {
     const [transactions, setTransactions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const API_URL = process.env.REACT_APP_API_URL;
+
 
     const sanitizeString = (str) => str.replace(/[^\w\s]/gi, '');
 
@@ -41,7 +43,7 @@ function CompanyDetails() {
                 if (!token) {
                     throw new Error('No token found');
                 }
-                const response = await axios.get(`http://localhost:5000/api/users/${user.userID}`, {
+                const response = await axios.get(`API_URL/api/users/${user.userID}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -94,7 +96,7 @@ function CompanyDetails() {
     
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get(`http://localhost:5000/api/users/${user.userID}`, {
+            const response = await axios.get(`${API_URL}/api/users/${user.userID}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -108,13 +110,13 @@ function CompanyDetails() {
             // Compare keys after trimming spaces and normalizing case
             if (enteredKey.trim() === fetchedKey.trim()) {
                 // Simulate download using the direct link
-                const fileDownloadLink = "https://drive.google.com/uc?id=1Un41pc3Bq8pj46c1gd2b19nbvPbDqO1p&export=download";
+                const fileDownloadLink = process.env.REACT_APP_GDRIVE_LINK;
                 window.open(fileDownloadLink, '_blank');
                 alert('Software downloading...');
     
                 // Clear the key in the backend
                 await axios.put(
-                    `http://localhost:5000/api/users/clearKey/${user.userID}`,
+                    `API_URL/api/users/clearKey/${user.userID}`,
                     { key: enteredKey.trim() },
                     {
                         headers: {
@@ -156,7 +158,7 @@ function CompanyDetails() {
             try {
                 const token = localStorage.getItem('authToken');
                 await axios.post(
-                    `http://localhost:5000/api/users/addTransaction/${user.userID}`,
+                    `API_URL/api/users/addTransaction/${user.userID}`,
                     { transactionID: transactionId },
                     {
                         headers: {

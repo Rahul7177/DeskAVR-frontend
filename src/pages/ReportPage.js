@@ -16,11 +16,11 @@ function InterviewReport() {
   const [interview, setInterview] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   useEffect(() => {
     const fetchReport = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/${userID}/reports/${index}`);
+        const response = await axios.get(`${API_URL}/api/users/${userID}/reports/${index}`);
         console.log('Response data:', response.data);
 
         const { report, interview, user } = response.data;

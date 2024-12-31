@@ -10,6 +10,7 @@ function PastInterviews() {
   const [pastInterviews, setPastInterviews] = useState([]);
   const [loading, setLoading] = useState(true); // Loading state
   const navigate = useNavigate();
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     if (user) {

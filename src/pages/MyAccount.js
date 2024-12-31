@@ -10,6 +10,7 @@ const MyAccount = () => {
   const [isPasswordChanging, setIsPasswordChanging] = useState(false);
   const [message, setMessage] = useState("");
   const [key, setKey] = useState(null); // State to store user's key
+  const API_URL = process.env.REACT_APP_API_URL;
 
   
   useEffect(() => {
@@ -18,7 +19,7 @@ const MyAccount = () => {
   
       try {
         if (user && user.userID) { // Check if user and userID exist
-          const response = await axios.get(`http://localhost:5000/api/users/${user.userID}`);
+          const response = await axios.get(`${API_URL}/api/users/${user.userID}`);
           console.log(response.data);
           setKey(response.data.key); // Set the key in state
         }

@@ -10,6 +10,7 @@ const AdminDashboard = () => {
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('all');
     const navigate = useNavigate();
+    const API_URL = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -19,7 +20,7 @@ const AdminDashboard = () => {
                 return;
             }
             try {
-                const response = await axios.get('http://localhost:5000/api/users', {
+                const response = await axios.get(`${API_URL}/api/users`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -63,7 +64,7 @@ const AdminDashboard = () => {
         const newKey = generateRandomKey();
 
         try {
-            const response = await axios.put(`http://localhost:5000/api/users/${userId}`, {
+            const response = await axios.put(`${API_URL}/api/users/${userId}`, {
                 subscription: true,
                 key: newKey,
             }, {
@@ -88,7 +89,7 @@ const AdminDashboard = () => {
     const handleRemoveSubscription = async (userId) => {
         const token = localStorage.getItem('authToken');
         try {
-            const response = await axios.put(`http://localhost:5000/api/users/${userId}`, { subscription: false, key: null }, { // Reset key to null
+            const response = await axios.put(`${API_URL}/api/users/${userId}`, { subscription: false, key: null }, { // Reset key to null
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
