@@ -93,6 +93,7 @@ const AdminDashboard = () => {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
+                credentials: 'include',
             });
             setUsers(users.map(user => user._id === userId ? response.data : user));
             setFilteredUsers(filteredUsers.map(user => user._id === userId ? response.data: user));

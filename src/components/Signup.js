@@ -51,7 +51,8 @@ const Signup = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, phone, password }), // Send form data to backend
+        body: JSON.stringify({ name, email, phone, password }),
+        credentials: 'include',
       });
       
       console.log("response:", response);

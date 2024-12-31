@@ -43,10 +43,11 @@ function CompanyDetails() {
                 if (!token) {
                     throw new Error('No token found');
                 }
-                const response = await axios.get(`API_URL/api/users/${user.userID}`, {
+                const response = await axios.get(`${API_URL}/api/users/${user.userID}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
+                    credentials: 'include',
                 });
                 const userData = response.data;
                 // console.log("key : "+userData.key);
@@ -116,7 +117,7 @@ function CompanyDetails() {
     
                 // Clear the key in the backend
                 await axios.put(
-                    `API_URL/api/users/clearKey/${user.userID}`,
+                    `${API_URL}/api/users/clearKey/${user.userID}`,
                     { key: enteredKey.trim() },
                     {
                         headers: {
@@ -158,7 +159,7 @@ function CompanyDetails() {
             try {
                 const token = localStorage.getItem('authToken');
                 await axios.post(
-                    `API_URL/api/users/addTransaction/${user.userID}`,
+                    `${API_URL}/api/users/addTransaction/${user.userID}`,
                     { transactionID: transactionId },
                     {
                         headers: {
