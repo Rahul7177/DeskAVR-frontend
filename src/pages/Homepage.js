@@ -9,6 +9,7 @@ import Founders from '../components/Founders';
 import UserManual from '../components/UserManual';
 import NewYearSale from '../components/Sale';
 import Footer from '../components/Footer';
+import logo from '../assets/logos/logo1.jpeg';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -24,6 +25,9 @@ const HomePage = () => {
           <div className="hero-overlay"></div> {/* Dark overlay */}
           <div className="hero-content">
             <div className="hero-text">
+            {/* <div className='logo-container'>
+              <img src={logo} alt='logo' className='brand-logo'></img>
+            </div> */}
               <h1 className='title'>Welcome To DeskAVR</h1>
               <p>A comprehensive online interview portal designed to streamline interview assessments, offering real-time performance insights and a smooth experience for both recruiters and applicants.</p>
             </div>

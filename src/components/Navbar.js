@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  
 import { useAuth } from '../context/AuthContext';
 import '../stylesheets/Navbar.css'; 
+import logo from '../assets/logos/logo1.jpeg';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -46,7 +47,8 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <Link to={'/'}><h1>DeskAVR</h1></Link>
+          <img src={logo}></img>
+          <Link to={'/'}> <h1>DeskAVR</h1></Link>
         </div>
         <ul className={`navbar-menu ${isMenuActive ? 'active' : ''}`}>
           <li><Link to="/">Home</Link></li>

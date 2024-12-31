@@ -12,13 +12,13 @@ const Footer = () => {
           </p>
         </div>
         <div className="footer-right">
-          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+          <a href="https://www.linkedin.com/company/specto-v/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="social-icon">
             <FaLinkedin />
           </a>
-          <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+          <a href="https://www.instagram.com/spectov_official/" target="_blank" rel="noopener noreferrer" className="social-icon">
             <FaInstagram />
           </a>
-          <a href="mailto:your-email@example.com" className="social-icon">
+          <a href="mailto:deskavr.spectov@gmail.com" className="social-icon">
             <FaEnvelope />
           </a>
         </div>

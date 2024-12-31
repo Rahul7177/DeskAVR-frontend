@@ -52,6 +52,21 @@
     }
 }
 
+.navbar-brand
+{
+    display: flex;
+    align-items: center;
+    
+}
+
+.navbar-brand img
+{
+    min-width: 50px;
+    width: 3.5vw;
+    margin-left: 0;
+    margin-right: 15px;
+}
+
 .navbar-brand a {
     text-decoration: none;
 }

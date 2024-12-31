@@ -32,7 +32,7 @@ const BlogDetail = () => {
           </section>
 
           <section className='section blogimg_section'>
-              <img src={blog_img} className='blog-img'/>
+              <img src={blog_img} className='blog-img' alt='Blog'/>
           </section>
 
           <section className="section">
