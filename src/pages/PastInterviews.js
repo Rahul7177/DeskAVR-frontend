@@ -19,7 +19,7 @@ function PastInterviews() {
 
       const fetchPastInterviews = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/api/users/pastinterviews/${userID}`);
+          const response = await fetch(`${API_URL}/api/users/pastinterviews/${userID}`);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
