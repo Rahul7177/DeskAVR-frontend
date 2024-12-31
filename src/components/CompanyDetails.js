@@ -43,11 +43,11 @@ function CompanyDetails() {
                 if (!token) {
                     throw new Error('No token found');
                 }
+                console.log(API_URL);
                 const response = await axios.get(`${API_URL}/api/users/${user.userID}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
-                    credentials: 'include',
                 });
                 const userData = response.data;
                 // console.log("key : "+userData.key);
