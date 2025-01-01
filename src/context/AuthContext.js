@@ -16,16 +16,21 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // State for the authenticated user
 
-  // Load user from localStorage on mount
+  // Load user and token from localStorage on mount
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
-    if (savedUser) {
+    const authToken = localStorage.getItem('authToken'); // Check for authToken
+    if (savedUser && authToken) {
       try {
         setUser(JSON.parse(savedUser)); // Parse and set user from localStorage
       } catch (error) {
         console.error('Failed to parse user data:', error);
         localStorage.removeItem('user'); // Clear corrupted user data
+        localStorage.removeItem('authToken'); // Clear token
       }
+    } else {
+      localStorage.removeItem('user');
+      localStorage.removeItem('authToken'); // Ensure clean state
     }
   }, []);
 
@@ -33,16 +38,17 @@ export const AuthProvider = ({ children }) => {
   const login = (userData) => {
     if (userData) {
       setUser(userData);
-      localStorage.setItem("user", JSON.stringify(userData)); // Save user in localStorage
+      localStorage.setItem('user', JSON.stringify(userData)); // Save user in localStorage
+      localStorage.setItem('authToken', userData.token); // Save token in localStorage
     }
   };
 
   // Logout function
-const logout = () => {
-  setUser(null); // Clear the user data
-  localStorage.removeItem('authToken'); // Remove the token from local storage
-};
-
+  const logout = () => {
+    setUser(null); // Clear the user data
+    localStorage.removeItem('user'); // Remove user from localStorage
+    localStorage.removeItem('authToken'); // Remove the token from localStorage
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
